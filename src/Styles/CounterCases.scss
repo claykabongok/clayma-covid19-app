@@ -1,0 +1,52 @@
+@import "colors";
+.container-counter-cases {
+  width: 96%;
+  margin: 20px auto;
+}
+
+.counter-cases-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.counter-case-title {
+  color: $colorGrey;
+}
+
+.confirmed-cases {
+  color: $colorOrange;
+}
+.active-cases {
+  color: $colorGold;
+}
+.total-deaths {
+  color: $colorRed45Percent;
+}
+
+.total-recovered {
+  color: $colorGreen;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .counter-cases-value {
+    font-size: 7vw;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .counter-cases-value {
+    font-size: 7vw;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .counter-cases-value {
+    font-size: 7vw;
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .counter-cases-value {
+    font-size: 3.5vw;
+  }
+}

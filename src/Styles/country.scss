@@ -1,8 +1,5 @@
 @import "colors";
-// .contries {
-//   padding: 40px 5px;
-//   background-color: greenyellow;
-// }
+
 
 .col-crountry-container {
   min-height: 220px;
@@ -13,7 +10,7 @@
   transition: 0.3s;
 
   height: 100%;
-  background-color: $colorwhite;
+  background-color: $white;
 
   img {
     width: 100%;
@@ -23,6 +20,4 @@
   }
 }
 
-.card-body {
-  color: $ColorDarkBlue;
-}
+
