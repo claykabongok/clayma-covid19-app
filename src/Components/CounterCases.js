@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/CounterCases.scss";
-
 import axios from "axios";
-
 import loadingIcon from "../Assets/dashboardloader3.gif";
 import CountUp from "react-countup";
-
 import {
   faUserPlus,
   faHeartbeat,

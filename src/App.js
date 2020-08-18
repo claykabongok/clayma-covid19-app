@@ -6,6 +6,9 @@ import loadingIcon from "./Assets/dashboardloader3.gif";
 
 const Homepage = lazy(() => import("./Components/Homepage"));
 
+const SearchCountry = lazy(() => import("./Components/SearchCountry"));
+const ViewCountry = lazy(() => import("./Components/ViewCountry"));
+
 function App() {
   return (
     <Router>
@@ -16,6 +19,9 @@ function App() {
       >
         <Switch>
           <Route exact path="/" component={Homepage} />
+          <Route exact path="/searchcountry" component={SearchCountry}/>
+          <Route exact path="/viewcountry/:isocode/:name" component={ViewCountry}/>
+        
         </Switch>
       </Suspense>
     </Router>

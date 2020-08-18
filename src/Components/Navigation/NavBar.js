@@ -66,7 +66,7 @@ export default function NavBar() {
               </li>
               
               <li>
-                <a href="/search">Search</a>
+                <a href="/searchcountry">Search</a>
               </li>
 
            

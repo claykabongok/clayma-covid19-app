@@ -23,7 +23,7 @@ export default function Country({ data }) {
         </div>
         <div className="card-country-info">
           <a
-            href={`/viewcountry/${data.alpha3Code}/${data.latlng}`}
+            href={`/viewcountry/${data.alpha2Code}/${data.name}`}
             className="stretched-link"
           > </a>
         </div>
