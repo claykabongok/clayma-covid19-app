@@ -48,19 +48,19 @@ export default function NavBar() {
                 </a>
                 <ul className="products-cat">
                   <li>
-                    <a href="/collections">Africa</a>
+                    <a href="/region/africa">Africa</a>
                   </li>
                   <li>
-                    <a href="/collections/men">Americas</a>
+                    <a href="/region/americas">Americas</a>
                   </li>
                   <li>
-                    <a href="/collections/women">Asia</a>
+                    <a href="/region/asia">Asia</a>
                   </li>
                   <li>
-                    <a href="/collections/kids">Europe</a>
+                    <a href="/region/europe">Europe</a>
                   </li>
                   <li>
-                    <a href="/collections/kids">Oceania</a>
+                    <a href="/region/ocenia">Oceania</a>
                   </li>
                 </ul>
               </li>
