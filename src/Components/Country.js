@@ -1,6 +1,7 @@
 import React from "react";
 import LinesEllipsis from "react-lines-ellipsis";
 import "../Styles/country.scss";
+import { Link } from "react-router-dom";
 
 export default function Country({ data }) {
   return (
@@ -22,10 +23,14 @@ export default function Country({ data }) {
        
         </div>
         <div className="card-country-info">
-          <a
-            href={`/viewcountry/${data.alpha2Code}/${data.name}`}
-            className="stretched-link"
-          > </a>
+          <Link   className="stretched-link"
+            to={{
+              pathname: `/viewcountry/${data.alpha2Code}/${data.name}`,
+             
+              state: { flag: data.flag }
+            }}>
+          </Link>
+       
         </div>
       </div>
     </div>

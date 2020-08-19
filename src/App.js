@@ -20,7 +20,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/searchcountry" component={SearchCountry}/>
-          <Route exact path="/viewcountry/:isocode/:name" component={ViewCountry}/>
+          <Route exact path="/viewcountry/:countryCode/:countryname" component={ViewCountry}/>
         
         </Switch>
       </Suspense>
