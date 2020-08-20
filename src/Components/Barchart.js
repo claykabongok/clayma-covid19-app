@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Chart } from "react-google-charts";
 import "../Styles/Barchchart.scss";
-
+import { useToasts } from "react-toast-notifications";
 export default function Barchart() {
+  const { addToast } = useToasts();
   const [loading, setLoading] = useState(true);
   //const [error, setError] = useState(false);
   // const [totalcases, setTotalcases] = useState([]);
@@ -31,14 +32,16 @@ export default function Barchart() {
         setLoading(false);
       })
       .catch((e) => {
-        //setError(true);
+ 
         setLoading(false);
+        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, })
       });
-  }, []);
+  }, [addToast]);
 
   return (
     <div>
       <div className="chart-card chart-container">
+        
         <Chart
           width={"100%"}
           height={"350px"}

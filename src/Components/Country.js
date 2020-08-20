@@ -8,9 +8,9 @@ export default function Country({ data }) {
     
     <div className="col-lg-3 col-md-4  col-sm-6 col-crountry-container">
       <div className="card-country">
-        <img class="card-img-top" src={data.flag} alt="flag" />
-        <div class="card-body">
-          <h4 class="card-title">
+        <img className="card-img-top" src={data.flag} alt="flag" />
+        <div className="card-body">
+          <h4 className="card-title">
             {" "}
             <LinesEllipsis
               text={data.name}

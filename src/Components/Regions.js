@@ -9,12 +9,15 @@ import loadingIcon from "../Assets/dashboardloader3.gif";
 import { useParams } from "react-router-dom";
 import "../Styles/Regions.scss";
 import NumberOfCountriesPergion from './NumberOfCountriesPergion';
+import { useToasts } from "react-toast-notifications";
 export default function Regions(props) {
   const [loading, setLoading] = useState(true);
   //const [error, setError] = useState(false);
   const [countries, setCountries] = useState([]);
   const {regionName} = useParams();
-  console.log(regionName);
+  const { addToast } = useToasts();
+  
+ 
 
   useEffect(() => {
     setLoading(true);
@@ -32,9 +35,9 @@ export default function Regions(props) {
         setLoading(false);
       })
       .catch((e) => {
-        // setError(true);
+        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, })
       });
-  }, [regionName]);
+  }, [addToast, regionName]);
 
   return (
     <div>

@@ -11,8 +11,10 @@ import loadingIcon from "../Assets/dashboardloader3.gif";
 import SearchBar from "./SearchBar";
 import Country from "./Country";
 import  '../Styles/SearchCountry.scss';
+import { useToasts } from "react-toast-notifications";
 
 export default function SearchCountry() {
+  const { addToast } = useToasts();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -27,7 +29,7 @@ export default function SearchCountry() {
   const FindCountry = (e) => {
     e.preventDefault();
 
-    if (query != null) {
+    if (query !== "") {
       setLoading(true);
       setError(false);
       const api = `https://restcountries.eu/rest/v2/name/${query}`;
@@ -39,15 +41,19 @@ export default function SearchCountry() {
         .then((res) => {
           setLoading(false);
           setsearchresult(res.data);
-          console.log(searchresult);
+         
         })
         .catch((e) => {
-          setError(true);
+          
           setLoading(false);
+          
+        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, })
         });
     } else {
-      setError(true);
+    
       setLoading(false);
+      
+      addToast("Please provide a valid  country  and try again.", { appearance: 'info', autoDismiss: true, })
     }
   };
   return (

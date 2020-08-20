@@ -16,10 +16,12 @@ import {
   faClock,
   faUniversity,
 } from "@fortawesome/free-solid-svg-icons";
+import { useToasts } from "react-toast-notifications";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function ViewCountry(props) {
+  const { addToast } = useToasts();
   const [totalConfirmed, setTotalConfirmed] = useState(0);
   const [totalDeaths, setTotalDeaths] = useState(0);
   const [totalRecovered, setTotalRecovered] = useState(0);
@@ -39,13 +41,11 @@ export default function ViewCountry(props) {
   }
 
   const { countryCode, countryname } = useParams();
-  let countryFlag="";
-  if( props.location.state){
+  let countryFlag = "";
+  if (props.location.state) {
     const { flag } = props.location.state;
-    countryFlag=flag;
-    
+    countryFlag = flag;
   }
-
 
   const [countryData, setCountryData] = useState([]);
   //const api = `https://api.covid19api.com/country/${countryCode}?from=2020-08-17T00:00:00Z&to=2020-08-18T00:00:00Z`;
@@ -56,7 +56,6 @@ export default function ViewCountry(props) {
       url: api,
     })
       .then((res) => {
-        console.log(res.data.Summary);
         setCountryData(res.data.Summary);
         setTotalConfirmed(res.data.Summary.Confirmed);
         setActiveCases(res.data.Summary.Active);
@@ -67,9 +66,10 @@ export default function ViewCountry(props) {
         setNewRecovered(res.data.Summary.NewRecovered);
       })
       .catch((e) => {
-        console.log(e);
+        
+        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, });
       });
-  }, [api, countryCode]);
+  }, [addToast, api, countryCode]);
 
   return (
     <>

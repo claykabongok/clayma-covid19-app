@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import "./Styles/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ToastProvider } from "react-toast-notifications";
 
 import loadingIcon from "./Assets/dashboardloader3.gif";
 
@@ -13,24 +14,27 @@ const Charts = lazy(() => import("./Components/Charts"));
 
 function App() {
   return (
-    <Router>
-      <Suspense
-        fallback={
-          <img src={loadingIcon} alt="loading" className="loadingIcon" />
-        }
-      >
-        <Switch>
-          <Route exact path="/" component={Homepage} />
-          <Route exact path="/searchcountry" component={SearchCountry}/>
-          <Route exact path="/viewcountry/:countryCode/:countryname" component={ViewCountry}/>
-          <Route exact path="/region/:regionName" component={Region}/>
-          <Route exact path="/charts" component={Charts}/>
-          
-
-        
-        </Switch>
-      </Suspense>
-    </Router>
+    <ToastProvider>
+      <Router>
+        <Suspense
+          fallback={
+            <img src={loadingIcon} alt="loading" className="loadingIcon" />
+          }
+        >
+          <Switch>
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/searchcountry" component={SearchCountry} />
+            <Route
+              exact
+              path="/viewcountry/:countryCode/:countryname"
+              component={ViewCountry}
+            />
+            <Route exact path="/region/:regionName" component={Region} />
+            <Route exact path="/charts" component={Charts} />
+          </Switch>
+        </Suspense>
+      </Router>
+    </ToastProvider>
   );
 }
 

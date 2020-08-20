@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Chart } from "react-google-charts";
 import "../Styles/CasesChart.scss";
-import LoadingIcon from '../Assets/dashboardloader3.gif';
-
+import { useToasts } from "react-toast-notifications";
 export default function CasesChart() {
   const [loading, setLoading] = useState(true);
 
@@ -11,6 +10,7 @@ export default function CasesChart() {
   const [totalDeaths, setTotalDeaths] = useState(0);
   const [totalRecovered, setTotalRecovered] = useState(0);
   let activeCases = totalConfirmed - totalDeaths - totalRecovered;
+  const { addToast } = useToasts();
 
   useEffect(() => {
     setLoading(true);
@@ -30,10 +30,11 @@ export default function CasesChart() {
         setLoading(false);
       })
       .catch((e) => {
-        //setError(true);
+     
         setLoading(false);
+        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, })
       });
-  }, []);
+  }, [addToast]);
   const state = {
     series: [totalRecovered, activeCases, totalDeaths],
     options: {
