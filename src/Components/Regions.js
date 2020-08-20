@@ -26,7 +26,7 @@ export default function Regions(props) {
       url: `${api}`,
     })
       .then((res) => {
-        console.log(res.data);
+    
         setCountries(res.data);
 
         setLoading(false);
@@ -49,8 +49,9 @@ export default function Regions(props) {
       </div>
       <div className="container-contries">
       
-        <div class="row ">
+        <div className="row ">
           {countries.map((data) => (
+             
             <Country data={data} key={data.numericCode} />
           ))}
         </div>

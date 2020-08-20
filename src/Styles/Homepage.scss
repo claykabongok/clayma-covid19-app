@@ -1,0 +1,24 @@
+@import "colors";
+
+.btn-view-data {
+  padding: 1rem 3rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  background-color: $themeColor;
+  border: 2px solid $themeColor;
+  border-radius: 5rem;
+
+  transition: background-color 650ms;
+  text-decoration: none;
+  color: $white;
+  font-size: 1.4rem;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: none;
+    color: $white;
+  }
+}
+.container-btn-view-data {
+  width: 100%;
+  text-align: center;
+}

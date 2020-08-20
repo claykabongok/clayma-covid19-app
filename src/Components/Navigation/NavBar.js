@@ -8,9 +8,7 @@ import {
 import "../../Styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
 export default function NavBar() {
-  
   const [toggleNav, setToggelNav] = useState(false);
 
   function handleToggle(e) {
@@ -60,16 +58,17 @@ export default function NavBar() {
                     <a href="/region/europe">Europe</a>
                   </li>
                   <li>
-                    <a href="/region/ocenia">Oceania</a>
+                    <a href="/region/oceania">Oceania</a>
                   </li>
                 </ul>
               </li>
-              
+
               <li>
                 <a href="/searchcountry">Search</a>
               </li>
-
-           
+              <li>
+                <a href="/charts">Charts</a>
+              </li>
             </ul>
           </nav>
         </div>

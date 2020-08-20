@@ -24,25 +24,28 @@ export default function ViewCountry(props) {
   const [totalDeaths, setTotalDeaths] = useState(0);
   const [totalRecovered, setTotalRecovered] = useState(0);
   const [activeCases, setActiveCases] = useState(0);
-  const [NewConfirmed, setNewConfirmed]=useState(0);
-  const [NewRecovered, setNewRecovered ]=useState(0);
-  const [NewDeaths, setNewDeaths ]=useState(0);
-  let recoveryRate=0;
-  let deathRate=0;
+  const [NewConfirmed, setNewConfirmed] = useState(0);
+  const [NewRecovered, setNewRecovered] = useState(0);
+  const [NewDeaths, setNewDeaths] = useState(0);
+  let recoveryRate = 0;
+  let deathRate = 0;
 
+  if (totalConfirmed > 0 && totalRecovered > 0) {
+    recoveryRate = Math.round((totalRecovered / totalConfirmed) * 100);
+  }
 
-  if(totalConfirmed >0 && totalRecovered >0 ){
-    recoveryRate=Math.round((totalRecovered/totalConfirmed)*100);
-    
+  if (totalConfirmed > 0 && totalDeaths > 0) {
+    deathRate = Math.round((totalDeaths / totalConfirmed) * 100);
   }
-  
-  if(totalConfirmed >0 && totalDeaths >0){
-    deathRate=Math.round((totalDeaths/totalConfirmed)*100);
-    
-  }
-  
+
   const { countryCode, countryname } = useParams();
-  const { flag } = props.location.state;
+  let countryFlag="";
+  if( props.location.state){
+    const { flag } = props.location.state;
+    countryFlag=flag;
+    
+  }
+
 
   const [countryData, setCountryData] = useState([]);
   //const api = `https://api.covid19api.com/country/${countryCode}?from=2020-08-17T00:00:00Z&to=2020-08-18T00:00:00Z`;
@@ -82,7 +85,7 @@ export default function ViewCountry(props) {
             </div>
             <img
               className="card-img-top"
-              src={flag}
+              src={countryFlag}
               alt={`flag ${countryname}`}
             />
           </div>
@@ -107,7 +110,7 @@ export default function ViewCountry(props) {
                     />
                   </h2>
                 </div>
-               
+
                 <div className="col-lg-4 counter-cases-content">
                   <h2 className="counter-case-title">Deaths </h2>
 
@@ -142,7 +145,7 @@ export default function ViewCountry(props) {
               <div className="row">
                 <div className="col-lg-3 counter-cases-content">
                   <h2 className="counter-case-title">New Confirmed</h2>
-             
+
                   <div className="counter-cases-value confirmed-cases">
                     <FontAwesomeIcon icon={faUserPlus} />
                   </div>
@@ -158,14 +161,14 @@ export default function ViewCountry(props) {
 
                 <div className="col-lg-3 counter-cases-content">
                   <h2 className="counter-case-title">New Deaths </h2>
-                
+
                   <div className="counter-cases-value total-deaths">
                     <FontAwesomeIcon icon={faPrayingHands} />
                   </div>
                   <h2 className="counter-cases-value total-deaths">
                     <CountUp
                       start={0}
-                      end={NewDeaths} 
+                      end={NewDeaths}
                       duration={2.75}
                       separator=","
                     />
@@ -173,7 +176,7 @@ export default function ViewCountry(props) {
                 </div>
                 <div className="col-lg-3 counter-cases-content">
                   <h2 className="counter-case-title">New Recovered </h2>
-              
+
                   <div className="counter-cases-value total-recovered">
                     <FontAwesomeIcon icon={faHeartbeat} />
                   </div>
@@ -201,19 +204,34 @@ export default function ViewCountry(props) {
                   </h2>
                 </div>
               </div>
-            
+
               <div className="row">
                 <div className="col-lg-5 ">
-                <h2><span className="counter-case-title">Recovery rate:  </span> <FontAwesomeIcon icon={faChartLine}></FontAwesomeIcon> {recoveryRate}%   </h2> 
-                  <h2> <span className="counter-case-title"> Source: </span><FontAwesomeIcon icon={faUniversity}></FontAwesomeIcon>  {countryData.Source}</h2>
+                  <h2>
+                    <span className="counter-case-title">Recovery rate: </span>{" "}
+                    <FontAwesomeIcon icon={faChartLine}></FontAwesomeIcon>{" "}
+                    {recoveryRate}%{" "}
+                  </h2>
+                  <h2>
+                    {" "}
+                    <span className="counter-case-title"> Source: </span>
+                    <FontAwesomeIcon icon={faUniversity}></FontAwesomeIcon>{" "}
+                    {countryData.Source}
+                  </h2>
                 </div>
                 <div className="col-lg-7">
-                <h2><span className="counter-case-title">Death rate: </span> <FontAwesomeIcon icon={faPrayingHands}></FontAwesomeIcon> {deathRate}%   </h2> 
-                  <h2><span className="counter-case-title">Last Update:  </span> <FontAwesomeIcon icon={faClock}></FontAwesomeIcon> {countryData.Last_Update}</h2>
+                  <h2>
+                    <span className="counter-case-title">Death rate: </span>{" "}
+                    <FontAwesomeIcon icon={faPrayingHands}></FontAwesomeIcon>{" "}
+                    {deathRate}%{" "}
+                  </h2>
+                  <h2>
+                    <span className="counter-case-title">Last Update: </span>{" "}
+                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>{" "}
+                    {countryData.Last_Update}
+                  </h2>
                 </div>
               </div>
-
-            
             </div>
           </div>
         </div>

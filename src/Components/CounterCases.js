@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function CounterCases() {
   const [loading, setLoading] = useState(true);
   //const [error, setError] = useState(false);
-  const [totalcases, setTotalcases] = useState([]);
+  // const [totalcases, setTotalcases] = useState([]);
 
   const [totalConfirmed, setTotalConfirmed] = useState(0);
   const [totalDeaths, setTotalDeaths] = useState(0);
@@ -35,7 +35,7 @@ export default function CounterCases() {
         setTotalConfirmed(res.data.TotalConfirmed);
         setTotalDeaths(res.data.TotalDeaths);
         setTotalRecovered(res.data.TotalRecovered);
-        setTotalcases(res.data);
+        // setTotalcases(res.data);
 
         setLoading(false);
       })
