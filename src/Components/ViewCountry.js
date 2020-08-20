@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 import "../Styles/ViewCountry.scss";
 import Axios from "axios";
 import CountUp from "react-countup";
+
+import CountryChartCase from './CountryChartCase';
 import {
   faUserPlus,
   faHeartbeat,
@@ -48,7 +50,6 @@ export default function ViewCountry(props) {
   }
 
   const [countryData, setCountryData] = useState([]);
-  //const api = `https://api.covid19api.com/country/${countryCode}?from=2020-08-17T00:00:00Z&to=2020-08-18T00:00:00Z`;
   const api = `https://corona.azure-api.net/country/${countryCode}`;
   useEffect(() => {
     Axios({
@@ -66,8 +67,10 @@ export default function ViewCountry(props) {
         setNewRecovered(res.data.Summary.NewRecovered);
       })
       .catch((e) => {
-        
-        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, });
+        addToast("Unable to retrieve data, try again", {
+          appearance: "error",
+          autoDismiss: true,
+        });
       });
   }, [addToast, api, countryCode]);
 
@@ -77,6 +80,7 @@ export default function ViewCountry(props) {
       <NavBar />
 
       <HeroImage />
+
       <div className="row container-view-country">
         <div className="col-lg-4">
           <div className="card-view-country">
@@ -235,6 +239,11 @@ export default function ViewCountry(props) {
             </div>
           </div>
         </div>
+      </div>
+  
+      <div className="container-country-chart">
+       <CountryChartCase countryCode={countryCode} countryname={countryname}/>
+    
       </div>
     </>
   );

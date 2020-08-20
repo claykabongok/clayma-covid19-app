@@ -38,6 +38,7 @@ export default function CounterCases() {
         setTotalDeaths(res.data.TotalDeaths);
         setTotalRecovered(res.data.TotalRecovered);
         setLoading(false);
+       
       })
       .catch((e) => {
         setLoading(false);
