@@ -40,6 +40,7 @@ export default function CountryChartCase(props) {
             <Chart
               chartType="LineChart"
               data={component.state.chartData}
+           
               options={{
                 hAxis: {
                   format: "MM-dd-yyyy",
