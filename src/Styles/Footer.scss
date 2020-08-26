@@ -1,0 +1,29 @@
+@import "colors";
+
+.main-footer {
+  background: url(../Assets/covid-19-4982910_1920.jpg) no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100px;
+}
+.main-footer-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  color: #ffffff;
+}
+
+.main-footer-copyright {
+  margin: auto;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  font-size: 1.5rem;
+  hr {
+    width: 100%;
+    margin: auto;
+    border-width: 3px;
+    border-color: $themeColor;
+  }
+}

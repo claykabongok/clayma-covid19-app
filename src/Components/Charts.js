@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./Navigation/NavBar";
 import TopBanner from "./Navigation/TopBanner";
 import HeroImage from "./Navigation/HeroImage";
-import CounterCases from "./CounterCases";
+import Footer from './Navigation/Footer';
 import CasesChart from "./CasesChart";
 import Barchart from './Barchart';
 import '../Styles/Charts.scss';
@@ -26,7 +26,7 @@ export default function Charts() {
       </div>
 
       </div>
-      
+      <Footer/>
         </div>
     )
 }

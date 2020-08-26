@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 import "../Styles/Regions.scss";
 import NumberOfCountriesPergion from './NumberOfCountriesPergion';
 import { useToasts } from "react-toast-notifications";
+import Footer from './Navigation/Footer';
 export default function Regions(props) {
   const [loading, setLoading] = useState(true);
   //const [error, setError] = useState(false);
@@ -59,6 +60,7 @@ export default function Regions(props) {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

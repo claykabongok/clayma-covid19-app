@@ -5,25 +5,25 @@ import axios from "axios";
 import NavBar from "./Navigation/NavBar";
 import TopBanner from "./Navigation/TopBanner";
 import HeroImage from "./Navigation/HeroImage";
-import CounterCases from "./CounterCases";
+
 import loadingIcon from "../Assets/dashboardloader3.gif";
 
 import SearchBar from "./SearchBar";
 import Country from "./Country";
-import  '../Styles/SearchCountry.scss';
+import "../Styles/SearchCountry.scss";
 import { useToasts } from "react-toast-notifications";
+import Footer from './Navigation/Footer';
 
 export default function SearchCountry() {
   const { addToast } = useToasts();
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+
   const [searchresult, setsearchresult] = useState([]);
 
   const handleSearchInput = (e) => {
     setQuery(e.target.value);
     setsearchresult([]);
-    setError(false);
   };
 
   const FindCountry = (e) => {
@@ -31,7 +31,7 @@ export default function SearchCountry() {
 
     if (query !== "") {
       setLoading(true);
-      setError(false);
+
       const api = `https://restcountries.eu/rest/v2/name/${query}`;
 
       axios({
@@ -41,28 +41,29 @@ export default function SearchCountry() {
         .then((res) => {
           setLoading(false);
           setsearchresult(res.data);
-         
         })
         .catch((e) => {
-          
           setLoading(false);
-          
-        addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, })
+
+          addToast("Unable to retrieve data, try again", {
+            appearance: "error",
+            autoDismiss: true,
+          });
         });
     } else {
-    
-      setLoading(false);
-      
-      addToast("Please provide a valid  country  and try again.", { appearance: 'info', autoDismiss: true, })
+      addToast("Please provide a valid  country  and try again.", {
+        appearance: "info",
+        autoDismiss: true,
+      });
     }
   };
   return (
     <div>
-          <TopBanner />
+      <TopBanner />
       <NavBar />
 
       <HeroImage />
-   
+
       <SearchBar
         handleSearchInput={handleSearchInput}
         FindCountry={FindCountry}
@@ -74,7 +75,7 @@ export default function SearchCountry() {
           <img src={loadingIcon} alt="loading" className="loadingIcon" />
         )}
       </div>
-  
+
       <div className="row row-search-results">
         {searchresult.length >= 1
           ? searchresult.map((data) => (
@@ -82,6 +83,7 @@ export default function SearchCountry() {
             ))
           : ""}
       </div>
+      <Footer/>
     </div>
   );
 }

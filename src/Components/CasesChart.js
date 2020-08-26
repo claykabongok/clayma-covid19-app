@@ -3,6 +3,7 @@ import axios from "axios";
 import { Chart } from "react-google-charts";
 import "../Styles/CasesChart.scss";
 import { useToasts } from "react-toast-notifications";
+import loadingIcon from '../Assets/dashboardloader3.gif';
 export default function CasesChart() {
   const [loading, setLoading] = useState(true);
 
@@ -35,33 +36,12 @@ export default function CasesChart() {
         addToast("Unable to retrieve data, try again", { appearance: 'error', autoDismiss: true, })
       });
   }, [addToast]);
-  const state = {
-    series: [totalRecovered, activeCases, totalDeaths],
-    options: {
-      chart: {
-        width: 380,
-        type: "pie",
-      },
-      labels: ["Total Recovered", "Active Cases", "Total Deaths"],
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: "bottom",
-            },
-          },
-        },
-      ],
-    },
-  };
 
   return (
     <div className="chart-container chart-card">
-      <Chart
+      {
+        loading ?  <img src={loadingIcon} alt="loading" className="loadingIcon" />:
+        <Chart
         width={"100%"}
         height={"350px"}
         chartType="PieChart"
@@ -80,6 +60,9 @@ export default function CasesChart() {
         }}
       
       />
-    </div>
+
+      }
+
+         </div>
   );
 }

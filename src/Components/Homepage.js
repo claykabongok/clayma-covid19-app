@@ -7,6 +7,7 @@ import CounterCases from "./CounterCases";
 
 import '../Styles/Homepage.scss';
 import { Link } from "react-router-dom";
+import Footer from './Navigation/Footer';
 
 export default function Homepage() {
   return (
@@ -28,6 +29,7 @@ export default function Homepage() {
        </div>
        
       <CounterCases />
+      <Footer/>
   
           </>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   faBars,
-  faShoppingCart,
   faCaretDown,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
