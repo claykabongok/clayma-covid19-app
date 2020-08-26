@@ -2,11 +2,12 @@ import React from "react";
 
 import { Chart } from "react-google-charts";
 import Component from "react-component-component";
-import loadingIcon from '../Assets/dashboardloader3.gif'
+import loadingIcon from '../Assets/dashboardloader3.gif';
+import "../Styles/CountryChartCase.scss";
 export default function CountryChartCase(props) {
   
   return (
-    <div>
+    <div className="chart-card">
          <Component
         initialState={{ dataLoadingStatus: "loading", chartData: [] }}
         didMount={async function (component) {

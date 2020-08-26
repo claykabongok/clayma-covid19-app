@@ -27,17 +27,25 @@
   color: $colorGreen;
 }
 
+@media only screen and (min-width: 480px) {
+  .counter-cases-value {
+    font-size: 10vw;
+  }
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .counter-cases-value {
-    font-size: 7vw;
+    font-size: 10vw;
   }
 }
-@media only screen and (min-width: 600px) {
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
   .counter-cases-value {
-    font-size: 7vw;
+    font-size: 10vw;
   }
 }
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   .counter-cases-value {
