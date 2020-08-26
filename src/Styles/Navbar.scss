@@ -211,6 +211,15 @@ ul li a.cart .cart-basket {
     display: flex;
   }
 }
+@media only screen and (min-width: 480px) {
+  header {
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    left: 0;
+    padding-top: 30px;
+  }
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
