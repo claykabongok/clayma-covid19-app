@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import "../Styles/ViewCountry.scss";
 import Axios from "axios";
 import CountUp from "react-countup";
+import Footer from './Navigation/Footer';
 
 import CountryChartCase from './CountryChartCase';
 import {
@@ -245,6 +246,7 @@ export default function ViewCountry(props) {
        <CountryChartCase countryCode={countryCode} countryname={countryname}/>
     
       </div>
+      <Footer/>
     </>
   );
 }
