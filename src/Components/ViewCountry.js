@@ -83,7 +83,7 @@ export default function ViewCountry(props) {
       <HeroImage />
 
       <div className="row container-view-country">
-        <div className="col-lg-4">
+        <div className="col-lg-4  mb-4 mt-4">
           <div className="card-view-country">
             <div className="card-body">
               <h1 className="card-title">{countryname}</h1>
@@ -95,7 +95,7 @@ export default function ViewCountry(props) {
             />
           </div>
         </div>
-        <div className="col-lg-8">
+        <div className="col-lg-8  mb-4 mt-4">
           <div className="card-view-country">
             <div className="card-body">
               <div className="row">

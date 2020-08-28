@@ -64,27 +64,14 @@ export default function CounterCases() {
               />
             </h1>
           </div>
-          <div className="col-lg-3 counter-cases-content">
-            <h1 className="counter-case-title">Active Cases</h1>
-            <div className="counter-cases-value active-cases">
-              <FontAwesomeIcon icon={faUsers} />
-            </div>
-            <h1 className="counter-cases-value active-cases">
-              <CountUp
-                start={0}
-                end={activeCases}
-                duration={2.75}
-                separator=","
-              />
-            </h1>
-          </div>
+     
           <div className="col-lg-3 counter-cases-content">
             <h1 className="counter-case-title">Total Deaths</h1>
             <div className="counter-cases-value total-deaths">
               <FontAwesomeIcon icon={faPrayingHands} />
             </div>
             <h1 className="counter-cases-value total-deaths">
-              {/* {new Intl.NumberFormat().format(totalDeaths)} */}
+            
               <CountUp
                 start={0}
                 end={totalDeaths}
@@ -100,13 +87,25 @@ export default function CounterCases() {
               <FontAwesomeIcon icon={faHeartbeat} />
             </div>
             <h1 className="counter-cases-value total-recovered">
-              {/* {
-         
-            new Intl.NumberFormat().format(totalRecovered)} */}
+           
 
               <CountUp
                 start={0}
                 end={totalRecovered}
+                duration={2.75}
+                separator=","
+              />
+            </h1>
+          </div>
+               <div className="col-lg-3 counter-cases-content">
+            <h1 className="counter-case-title">Active Cases</h1>
+            <div className="counter-cases-value active-cases">
+              <FontAwesomeIcon icon={faUsers} />
+            </div>
+            <h1 className="counter-cases-value active-cases">
+              <CountUp
+                start={0}
+                end={activeCases}
                 duration={2.75}
                 separator=","
               />

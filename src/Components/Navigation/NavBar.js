@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "../../Styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [toggleNav, setToggelNav] = useState(false);
@@ -34,39 +35,46 @@ export default function NavBar() {
 
             <ul className="navigation-list">
               <li>
-                <a href="/">Home</a>
+                
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="/">
+                <Link>
                   Regions
-                  <i className="icon ">
-                    <FontAwesomeIcon icon={faCaretDown} />
-                  </i>
-                </a>
+                  <FontAwesomeIcon icon={faCaretDown} className="icon " />
+                </Link>
+           
                 <ul className="products-cat">
                   <li>
-                    <a href="/region/africa">Africa</a>
+              
+                    <Link to="/region/africa">Africa</Link>
                   </li>
                   <li>
-                    <a href="/region/americas">Americas</a>
+                  <Link to="/region/americas">Americas</Link>
+                
                   </li>
                   <li>
-                    <a href="/region/asia">Asia</a>
+                
+                    <Link to="/region/asia">Asia</Link>
                   </li>
                   <li>
-                    <a href="/region/europe">Europe</a>
+                 
+                    <Link to="/region/europe">Europe</Link>
                   </li>
                   <li>
-                    <a href="/region/oceania">Oceania</a>
+                  
+                    <Link to="/region/oceania">Oceania</Link>
                   </li>
                 </ul>
               </li>
 
               <li>
-                <a href="/searchcountry">Search</a>
+    
+                <Link to="/searchcountry">Search</Link>
               </li>
               <li>
-                <a href="/charts">Charts</a>
+               
+                <Link to="/charts">Charts</Link>
               </li>
             </ul>
           </nav>
