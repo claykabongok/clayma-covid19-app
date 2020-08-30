@@ -2,7 +2,7 @@
 
 A react app about covid-19 data.
 
-## [Demo]()
+## [Demo](https://claymacovid.netlify.app/)
 
 ### Homepage
 
