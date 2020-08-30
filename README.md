@@ -1,6 +1,16 @@
 # `clayma-covid19-app`
 
-A react app about covid-19 data.
+A react app with the latest covid-19 data.
+
+## Concepts used in this Application
+
+- React-hooks
+- React-google-charts
+- Linecharts
+- Piechart
+- Rest-api
+- Axios
+- React-router
 
 ## [Demo](https://claymacovid.netlify.app/)
 
