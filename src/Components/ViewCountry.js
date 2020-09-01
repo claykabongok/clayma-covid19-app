@@ -7,9 +7,9 @@ import { useParams } from "react-router-dom";
 import "../Styles/ViewCountry.scss";
 import Axios from "axios";
 import CountUp from "react-countup";
-import Footer from './Navigation/Footer';
-
-import CountryChartCase from './CountryChartCase';
+import Footer from "./Navigation/Footer";
+import CountryCasesPieChart from './CountryCasesPieChart';
+import CountryChartCase from "./CountryChartCase";
 import {
   faUserPlus,
   faHeartbeat,
@@ -83,7 +83,7 @@ export default function ViewCountry(props) {
       <HeroImage />
 
       <div className="row container-view-country">
-        <div className="col-lg-4  mb-4 mt-4">
+        <div className="col-lg-4  mt-4">
           <div className="card-view-country">
             <div className="card-body">
               <h1 className="card-title">{countryname}</h1>
@@ -95,13 +95,21 @@ export default function ViewCountry(props) {
             />
           </div>
         </div>
-        <div className="col-lg-8  mb-4 mt-4">
+        <div className="col-lg-8  mt-4">
+
+      
+          <CountryCasesPieChart totalConfirmed={totalConfirmed} totalDeaths={totalDeaths} totalRecovered={totalRecovered} activeCases={activeCases}  />
+        </div>
+      </div>
+
+      <div className="row container-view-country">
+        <div className="col-lg-12  mt-4 ">
           <div className="card-view-country">
             <div className="card-body">
               <div className="row">
                 <div className="col-lg-4 counter-cases-content">
                   <h2 className="counter-case-title">Confirmed</h2>
-                  {/* <h2> {countryData.Confirmed}</h2> */}
+               
 
                   <div className="counter-cases-value confirmed-cases">
                     <FontAwesomeIcon icon={faUserPlus} />
@@ -241,12 +249,11 @@ export default function ViewCountry(props) {
           </div>
         </div>
       </div>
-  
+
       <div className="container-country-chart">
-       <CountryChartCase countryCode={countryCode} countryname={countryname}/>
-    
+        <CountryChartCase countryCode={countryCode} countryname={countryname} />
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
