@@ -22,6 +22,8 @@ A react app with the latest covid-19 data.
 
 <img src="https://github.com/claykabongok/clayma-covid19-app/blob/master/demo/countryData.jpg?raw=true" alt="Demo screen">
 
+<img src="https://github.com/claykabongok/clayma-covid19-app/blob/master/demo/countryDatacount.jpg?raw=true" alt="Demo screen">
+
 <img src="https://github.com/claykabongok/clayma-covid19-app/blob/master/demo/countryDataChart.jpg?raw=true" alt="Demo screen">
 
 <img src="https://github.com/claykabongok/clayma-covid19-app/blob/master/demo/charts.jpg?raw=true" alt="Demo screen">
