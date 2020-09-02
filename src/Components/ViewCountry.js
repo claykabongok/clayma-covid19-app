@@ -8,7 +8,7 @@ import "../Styles/ViewCountry.scss";
 import Axios from "axios";
 import CountUp from "react-countup";
 import Footer from "./Navigation/Footer";
-import CountryCasesPieChart from './CountryCasesPieChart';
+import CountryCasesPieChart from "./CountryCasesPieChart";
 import CountryChartCase from "./CountryChartCase";
 import {
   faUserPlus,
@@ -34,6 +34,7 @@ export default function ViewCountry(props) {
   const [NewDeaths, setNewDeaths] = useState(0);
   let recoveryRate = 0;
   let deathRate = 0;
+  let activeCasesRate=0;
 
   if (totalConfirmed > 0 && totalRecovered > 0) {
     recoveryRate = Math.round((totalRecovered / totalConfirmed) * 100);
@@ -43,6 +44,10 @@ export default function ViewCountry(props) {
     deathRate = Math.round((totalDeaths / totalConfirmed) * 100);
   }
 
+if (totalConfirmed > 0 && activeCases > 0) {
+    activeCasesRate = Math.round((activeCases / totalConfirmed) * 100);
+  }
+  
   const { countryCode, countryname } = useParams();
   let countryFlag = "";
   if (props.location.state) {
@@ -96,9 +101,12 @@ export default function ViewCountry(props) {
           </div>
         </div>
         <div className="col-lg-8  mt-4">
-
-      
-          <CountryCasesPieChart totalConfirmed={totalConfirmed} totalDeaths={totalDeaths} totalRecovered={totalRecovered} activeCases={activeCases}  />
+          <CountryCasesPieChart
+            totalConfirmed={totalConfirmed}
+            totalDeaths={totalDeaths}
+            totalRecovered={totalRecovered}
+            activeCases={activeCases}
+          />
         </div>
       </div>
 
@@ -109,7 +117,6 @@ export default function ViewCountry(props) {
               <div className="row">
                 <div className="col-lg-4 counter-cases-content">
                   <h2 className="counter-case-title">Confirmed</h2>
-               
 
                   <div className="counter-cases-value confirmed-cases">
                     <FontAwesomeIcon icon={faUserPlus} />
@@ -219,12 +226,31 @@ export default function ViewCountry(props) {
               </div>
 
               <div className="row">
-                <div className="col-lg-5 ">
+                <div className="col-lg-4">
                   <h2>
                     <span className="counter-case-title">Recovery rate: </span>{" "}
                     <FontAwesomeIcon icon={faChartLine}></FontAwesomeIcon>{" "}
                     {recoveryRate}%{" "}
                   </h2>
+                </div>
+                <div className="col-lg-4">
+                  <h2>
+                    <span className="counter-case-title">Death rate: </span>{" "}
+                    <FontAwesomeIcon icon={faPrayingHands}></FontAwesomeIcon>{" "}
+                    {deathRate}%{" "}
+                  </h2>
+                </div>
+                <div className="col-lg-4">
+                  <h2>
+                    <span className="counter-case-title">Active cases: </span>{" "}
+                    <FontAwesomeIcon icon={faHeartbeat}></FontAwesomeIcon>{" "}
+                    {activeCasesRate}%{" "}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-lg-6">
                   <h2>
                     {" "}
                     <span className="counter-case-title"> Source: </span>
@@ -232,12 +258,7 @@ export default function ViewCountry(props) {
                     {countryData.Source}
                   </h2>
                 </div>
-                <div className="col-lg-7">
-                  <h2>
-                    <span className="counter-case-title">Death rate: </span>{" "}
-                    <FontAwesomeIcon icon={faPrayingHands}></FontAwesomeIcon>{" "}
-                    {deathRate}%{" "}
-                  </h2>
+                <div className="col-lg-6">
                   <h2>
                     <span className="counter-case-title">Last Update: </span>{" "}
                     <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>{" "}
