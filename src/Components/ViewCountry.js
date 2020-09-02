@@ -111,7 +111,7 @@ if (totalConfirmed > 0 && activeCases > 0) {
       </div>
 
       <div className="row container-view-country">
-        <div className="col-lg-12  mt-4 ">
+        <div className="col-lg-12 ">
           <div className="card-view-country">
             <div className="card-body">
               <div className="row">
@@ -161,6 +161,18 @@ if (totalConfirmed > 0 && activeCases > 0) {
                   </h2>
                 </div>
               </div>
+
+          
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="row container-view-country">
+        <div className="col-lg-12   ">
+          <div className="card-view-country">
+            <div className="card-body">
 
               <div className="row">
                 <div className="col-lg-3 counter-cases-content">
@@ -270,6 +282,7 @@ if (totalConfirmed > 0 && activeCases > 0) {
           </div>
         </div>
       </div>
+
 
       <div className="container-country-chart">
         <CountryChartCase countryCode={countryCode} countryname={countryname} />
