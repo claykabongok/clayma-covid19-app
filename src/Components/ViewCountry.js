@@ -285,7 +285,7 @@ if (totalConfirmed > 0 && activeCases > 0) {
 
 
       <div className="container-country-chart">
-        <CountryChartCase countryCode={countryCode} countryname={countryname} />
+        <CountryChartCase countryCode={countryCode} countryname={countryname} totalConfirmed={totalConfirmed} />
       </div>
       <Footer />
     </>

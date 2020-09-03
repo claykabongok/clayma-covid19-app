@@ -49,7 +49,7 @@ export default function CountryChartCase(props) {
                 vAxis: {
                   format: "short",
                 },
-                title: "Covid-19 data: "+props.countryname,
+                title: "Covid-19 data: "+props.countryname+". Total Confirmed: "+new Intl.NumberFormat().format(props.totalConfirmed),
               }}
           
             />

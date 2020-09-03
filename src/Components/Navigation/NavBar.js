@@ -11,10 +11,10 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   const [toggleNav, setToggelNav] = useState(false);
 
-  function handleToggle(e) {
+  const handleToggle = (e) => {
     e.preventDefault();
     setToggelNav(!toggleNav);
-  }
+  };
   return (
     <div>
       <header>
@@ -35,7 +35,6 @@ export default function NavBar() {
 
             <ul className="navigation-list">
               <li>
-                
                 <Link to="/">Home</Link>
               </li>
               <li>
@@ -43,37 +42,30 @@ export default function NavBar() {
                   Regions
                   <FontAwesomeIcon icon={faCaretDown} className="icon " />
                 </Link>
-           
+
                 <ul className="products-cat">
                   <li>
-              
                     <Link to="/region/africa">Africa</Link>
                   </li>
                   <li>
-                  <Link to="/region/americas">Americas</Link>
-                
+                    <Link to="/region/americas">Americas</Link>
                   </li>
                   <li>
-                
                     <Link to="/region/asia">Asia</Link>
                   </li>
                   <li>
-                 
                     <Link to="/region/europe">Europe</Link>
                   </li>
                   <li>
-                  
                     <Link to="/region/oceania">Oceania</Link>
                   </li>
                 </ul>
               </li>
 
               <li>
-    
                 <Link to="/searchcountry">Search</Link>
               </li>
               <li>
-               
                 <Link to="/charts">Charts</Link>
               </li>
             </ul>

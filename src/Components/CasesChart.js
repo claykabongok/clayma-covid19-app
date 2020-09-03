@@ -54,7 +54,7 @@ export default function CasesChart() {
         
         ]}
         options={{
-          title: "Covid-17 Data. Total confirmed "+new Intl.NumberFormat().format(totalConfirmed),
+          title: "Covid-19 Data. Total confirmed: "+new Intl.NumberFormat().format(totalConfirmed),
           
           is3D: true,
         }}

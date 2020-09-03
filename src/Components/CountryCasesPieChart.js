@@ -21,7 +21,7 @@ export default function CountryCasesPieChart(props) {
         ]}
         options={{
           title:
-            "Covid-17 Data. Total confirmed: " +
+            "Covid-19 Data. Total confirmed: " +
             new Intl.NumberFormat().format(props.totalConfirmed),
 
           is3D: true,
