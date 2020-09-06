@@ -11,6 +11,7 @@ const SearchCountry = lazy(() => import("./Components/SearchCountry"));
 const ViewCountry = lazy(() => import("./Components/ViewCountry"));
 const Region = lazy(() => import("./Components/Regions"));
 const Charts = lazy(() => import("./Components/Charts"));
+const PageNotFound = lazy(() => import("./Components/PageNotFound"));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             />
             <Route exact path="/region/:regionName" component={Region} />
             <Route exact path="/charts" component={Charts} />
+            <Route component={PageNotFound} />
           </Switch>
         </Suspense>
       </Router>
